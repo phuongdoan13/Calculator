@@ -17,12 +17,13 @@ let OPERATORS = ["*", "/", "%", "+", "-"] //required operators
 var numbers = Stack()
 var operators = Stack()
 
-func isValidInteger(_ str : String) -> Bool{
-	return Int(str) != nil
+extension String{
+	var isInt : Bool{
+		return Int(self) != nil
+	}
+	
+	var isOperator : Bool{
+		return OPERATORS.contains(self)
+	}
 }
-
-func isValidOperator(_ str : String) -> Bool{
-	return OPERATORS.contains(str)
-}
-
 
