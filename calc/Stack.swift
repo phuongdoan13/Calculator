@@ -10,11 +10,6 @@
 
 import Foundation
 
-enum StackError: Error {
-    case EmptyStack
-}
-
-
 struct Stack {
     private var items: [String] = []
     
@@ -36,4 +31,8 @@ struct Stack {
         items.insert(element, at: 0)
     }
 	
+}
+
+enum StackError: Error {
+	case EmptyStack
 }
