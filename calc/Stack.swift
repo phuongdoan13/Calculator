@@ -31,6 +31,9 @@ struct Stack {
         items.insert(element, at: 0)
     }
 	
+	mutating func removeAll(){
+		items.removeAll()
+	}
 }
 
 enum StackError: Error {
