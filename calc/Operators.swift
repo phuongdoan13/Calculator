@@ -6,12 +6,50 @@
 //  Copyright © 2020 UTS. All rights reserved.
 //
 
+
 import Foundation
 
 let OPERATORS = ["*", "/", "%", "+", "-"]
 
-func add(){
+// Reference: https://theswiftdev.com/how-to-use-the-result-type-to-handle-errors-in-swift/
+// # Handle divide by Zero
+enum DivisionError: Error{
 	
+	case zeroDivisor
+}
+
+extension DivisionError:LocalizedError{
+	public var errorDescription: String?{
+		switch self{
+		case .zeroDivisor:
+			return "Division by zero"
+		}
+	}
+}
+
+func divide(_ x : Int, by y : Int) throws -> Int {
+	guard y != 0 else {
+		throw DivisionError.zeroDivisor
+	}
+	return x / y
+}
+
+func mod(_ x : Int, by y : Int) throws -> Int{
+	guard y != 0 else {
+		throw DivisionError.zeroDivisor
+	}
+	return x % y
 }
 
 
+func multiply(_ x : Int ,_ y : Int) -> Int{
+	return x * y
+}
+
+func add(x : Int, y : Int) -> Int{
+	return x + y
+}
+
+func minus(x : Int, y : Int) -> Int{
+	return x - y
+}

@@ -7,18 +7,19 @@
 //
 
 import Foundation
-class Calculator{
-	//required operators
-	var numbers = Stack()
-	var operators = Stack()
-	let INPUT : [String]
-	
+
+public class Calculator{
+	private var numbers = Stack()
+	private var operators = Stack()
+	private let INPUT : [String]
+	/////////////////////////////////////////////
 	init(_ input : [String]){
-		// # CONSTRUCTOR
+		// # Constructor
 		self.INPUT = input
 	}
-	
+
 	func use(){
+		// # Main Method
 		if(!isValidInput()){
 			return;
 		}
@@ -36,8 +37,8 @@ class Calculator{
 			return false
 		}
 		return true;
-
 	}
+	
 	
 }
 
