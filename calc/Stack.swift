@@ -10,24 +10,28 @@
 
 import Foundation
 
+enum StackError: Error {
+	case EmptyStack
+}
+
 struct Stack {
     private var items: [String] = []
     
     func peek() throws -> String {
-        // Get the upmost item of the stack
+		// #Get the upmost item of the stack
         guard let upperItem = items.first else {throw StackError.EmptyStack}
         return upperItem
     }
     
     mutating func pop() throws -> String{
-        // Remove and Get the upmost item of the stack
+		// #Remove and Get the upmost item of the stack
 		guard let upperItem = items.first else {throw StackError.EmptyStack}
 		items.remove(at: 0)
 		return upperItem
     }
     
     mutating func push(_ element: String) {
-		// Add a new item at the top
+		// #Add a new item at the top
         items.insert(element, at: 0)
     }
 	
@@ -36,6 +40,4 @@ struct Stack {
 	}
 }
 
-enum StackError: Error {
-	case EmptyStack
-}
+

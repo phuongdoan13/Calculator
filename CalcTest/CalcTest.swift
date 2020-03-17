@@ -146,7 +146,7 @@ class CalcTest: XCTestCase {
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("2", "+", "n")
+        task = calcProcess("2", "+", "n") // Fix this
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
@@ -154,15 +154,15 @@ class CalcTest: XCTestCase {
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("3", "x", "4.5.6")
+        task = calcProcess("3", "x", "4.5.6") // Fix this, suppose to point out number 4.5.6
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("7", "foo", "8")
+        task = calcProcess("7", "foo", "8")// point out operator foo
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("12", "x", "/", "2")
+        task = calcProcess("12", "x", "/", "2")//
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
@@ -170,7 +170,7 @@ class CalcTest: XCTestCase {
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("12", "++", "12")
+        task = calcProcess("12", "++", "12") // Supposed to point operator ++
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
     }
