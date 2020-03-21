@@ -117,36 +117,36 @@ class CalcTest: XCTestCase {
         XCTAssertNil(task.status, "exit with zero status on valid input: \(task.input)")
         
         // expect out-of-bounds parsing to emit an error
-        task = calcProcess("\(Int.max)\(randomSource.nextInt(upperBound:90)+10)")
+        task = calcProcess("\(Int.max)\(randomSource.nextInt(upperBound:90)+10)") //Invalid number:
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("-\(Int.max)\(randomSource.nextInt(upperBound:90)+10)")
+        task = calcProcess("-\(Int.max)\(randomSource.nextInt(upperBound:90)+10)") //Invalid number
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
         // various invalid things
-        task = calcProcess("x")
+        task = calcProcess("x") // Invalid number
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("10101", "10110")
+        task = calcProcess("10101", "10110") //Incomplete expression. Expected input of the form [number] [operator number ...]
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("33", "-")
+        task = calcProcess("33", "-")//Incomplete expression. Expected input of the form [number] [operator number ...]
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("66", "-6")
+        task = calcProcess("66", "-6")//Incomplete expression. Expected input of the form [number] [operator number ...]
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("3.1", "-4", "xyz")
+		task = calcProcess("3.1", "-4", "xyz") //Unknown operator: -9
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("2", "+", "n") // Fix this
+        task = calcProcess("2", "+", "n") // Fix this Invalid number: n
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
@@ -162,7 +162,7 @@ class CalcTest: XCTestCase {
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         
-        task = calcProcess("12", "x", "/", "2")//
+        task = calcProcess("12", "x", "/", "2")//Incomplete expression. Expected input of the form [number] [operator number ...]
         XCTAssertNotNil(task.status, "exit with nonzero status on invalid input: \(task.input)")
         XCTAssert(task.status != calcError.timeout, "exit with nonzero status on invalid input: \(task.input)")
         

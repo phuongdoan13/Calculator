@@ -9,36 +9,23 @@
 
 import Foundation
 
-let OPERATORS = ["*", "/", "%", "+", "-"]
+let OPERATORS = ["x", "/", "%", "+", "-"]
 
-// Reference: https://theswiftdev.com/how-to-use-the-result-type-to-handle-errors-in-swift/
-// # Handle divide by Zero
-enum DivisionError: Error{
-	case zeroDivisor
-}
-
-extension DivisionError : LocalizedError{
-	public var errorDescription: String? {
-		switch self{
-		case .zeroDivisor:
-			return "Division by zero"
-		}
-	}
-}
-
-// # Operators functions
-func divide(_ x : Int, by y : Int) throws -> Int {
+// ## Operators functions
+func divide(_ x : Int, by y : Int)  -> Int {
 	// 100 / 3
 	guard y != 0 else {
-		throw DivisionError.zeroDivisor
+		print("Division by zero")
+		return 0;
 	}
 	return x / y
 }
 
-func mod(_ x : Int, by y : Int) throws -> Int{
+func mod(_ x : Int, by y : Int) -> Int{
 	// 100 % 3
 	guard y != 0 else {
-		throw DivisionError.zeroDivisor
+		print("Division by zero")
+		return 0;
 	}
 	return x % y
 }
@@ -48,12 +35,21 @@ func multiply(_ x : Int ,_ y : Int) -> Int{
 	return x * y
 }
 
-func add(_ x : Int, _ y : Int) -> Int{
-	// 100 + 3
-	return x + y
+
+// No longer need this because of extension String
+// # Handle divide by Zero
+// Reference: https://theswiftdev.com/how-to-use-the-result-type-to-handle-errors-in-swift/
+/*
+enum DivisionError: Error{
+	case zeroDivisor
 }
 
-func minus(_ x : Int, _ y : Int) -> Int{
-	// 100 - 3
-	return x - y
+extension DivisionError : LocalizedError{
+	public var errorDescription: String? {
+		switch self{
+			case .zeroDivisor:
+				return "Division by zero"
+		}
+	}
 }
+*/

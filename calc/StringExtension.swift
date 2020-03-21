@@ -8,7 +8,12 @@
 
 import Foundation
 
-extension String{
+extension String : LocalizedError{
+	public var errorDescription: String? {
+		// # Throw String error when there is bug
+		return self
+	}
+	
 	var isInt : Bool{
 		return Int(self) != nil
 	}
@@ -21,3 +26,4 @@ extension String{
 		return self.isInt || self.isOperator
 	}
 }
+
