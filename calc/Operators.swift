@@ -16,7 +16,7 @@ func divide(_ x : Int, by y : Int)  -> Int {
 	// 100 / 3
 	guard y != 0 else {
 		print("Division by zero")
-		return 0;
+		abort();
 	}
 	return x / y
 }
@@ -25,7 +25,7 @@ func mod(_ x : Int, by y : Int) -> Int{
 	// 100 % 3
 	guard y != 0 else {
 		print("Division by zero")
-		return 0;
+		abort();
 	}
 	return x % y
 }
@@ -36,20 +36,4 @@ func multiply(_ x : Int ,_ y : Int) -> Int{
 }
 
 
-// No longer need this because of extension String
-// # Handle divide by Zero
-// Reference: https://theswiftdev.com/how-to-use-the-result-type-to-handle-errors-in-swift/
-/*
-enum DivisionError: Error{
-	case zeroDivisor
-}
 
-extension DivisionError : LocalizedError{
-	public var errorDescription: String? {
-		switch self{
-			case .zeroDivisor:
-				return "Division by zero"
-		}
-	}
-}
-*/

@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import Foundation
-
 
 struct StackInt{
 	var items: [Int] = []
@@ -30,10 +28,6 @@ struct StackInt{
 		// #Add a new item at the top
 		items.insert(element, at: 0)
 		sum = sum + element
-	}
-	
-	mutating func removeAll(){
-		items.removeAll()
 	}
 }
 

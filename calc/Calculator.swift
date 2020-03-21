@@ -24,6 +24,7 @@ public class Calculator{
 			print(numbers.sum)
 		}
 	}
+	
 	func calc(_ args : [String]){
 		// # Calculator's brain
 		// Ref: https://leetcode.com/problems/basic-calculator-ii/discuss/500711/Swift-Simple-faster-than-100
@@ -47,21 +48,20 @@ public class Calculator{
 	func isValid() -> Bool  {
 		if(INPUT.count % 2 == 0){
 			print("Incomplete expression. Expected input of the form [number] [operator number ...]")
+			abort()
 		}
 
-		// boolInput indicate at which value
-		
+		// boolInput indicate at which index the data doesn't match (odd index: number, even index: operator). e.g ["2" , "+", "s"] would give bool input of [true, true, false]
 		let boolInput = INPUT.enumerated().map({ (key: Int, value: String) in key % 2 == 0 ? value.isInt : value.isOperator})
 		var i = 0
 		for boolValue in boolInput{
 			if(i % 2 == 0 && boolValue == false){
 				print("Invalid Number: \(INPUT[i])")
-				return false
+				abort()
 				//throw InvalidInput.invalidNumber
 			}else if(i % 2 == 1 && boolValue == false){
 				print("Unknown Parameter: \(INPUT[i])")
-				return false
-				//throw InvalidInput.unknownOperator
+				abort()
 			}
 			i = i + 1
 		}
@@ -69,7 +69,7 @@ public class Calculator{
 		return true
 	}
 }
-
+/*
 enum InvalidInput: Error{
 	case invalidNumber
 	case unknownOperator
@@ -85,4 +85,4 @@ extension InvalidInput : LocalizedError{
 		}
 	}
 }
-
+*/
