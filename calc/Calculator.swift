@@ -48,7 +48,7 @@ public class Calculator{
 	func isValid() -> Bool  {
 		if(INPUT.count % 2 == 0){
 			print("Incomplete expression. Expected input of the form [number] [operator number ...]")
-			abort()
+			exit(1)
 		}
 
 		// boolInput indicate at which index the data doesn't match (odd index: number, even index: operator). e.g ["2" , "+", "s"] would give bool input of [true, true, false]
@@ -57,11 +57,10 @@ public class Calculator{
 		for boolValue in boolInput{
 			if(i % 2 == 0 && boolValue == false){
 				print("Invalid Number: \(INPUT[i])")
-				abort()
-				//throw InvalidInput.invalidNumber
+				exit(1)
 			}else if(i % 2 == 1 && boolValue == false){
 				print("Unknown Parameter: \(INPUT[i])")
-				abort()
+				exit(1)
 			}
 			i = i + 1
 		}

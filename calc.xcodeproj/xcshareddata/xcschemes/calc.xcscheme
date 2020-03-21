@@ -79,7 +79,7 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "2"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
             argument = ""
@@ -87,11 +87,11 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "+"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
             argument = "3"
-            isEnabled = "NO">
+            isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
