@@ -45,13 +45,16 @@ public class Calculator{
 			}
 		}
 	}
+	
 	func isValid() -> Bool  {
+		// # Check valid input
 		if(INPUT.count % 2 == 0){
 			print("Incomplete expression. Expected input of the form [number] [operator number ...]")
 			exit(1)
 		}
 
-		// boolInput indicate at which index the data doesn't match (odd index: number, even index: operator). e.g ["2" , "+", "s"] would give bool input of [true, true, false]
+		// boolInput indicate at which index the data doesn't match (odd index: number, even index: operator).
+		// e.g ["2" , "+", "s"] would give bool input of [true, true, false]
 		let boolInput = INPUT.enumerated().map({ (key: Int, value: String) in key % 2 == 0 ? value.isInt : value.isOperator})
 		var i = 0
 		for boolValue in boolInput{
@@ -67,6 +70,7 @@ public class Calculator{
 
 		return true
 	}
+	
 }
 /*
 enum InvalidInput: Error{

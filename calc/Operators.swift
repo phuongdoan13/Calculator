@@ -16,7 +16,7 @@ func divide(_ x : Int, by y : Int)  -> Int {
 	// 100 / 3
 	guard y != 0 else {
 		print("Division by zero")
-		abort();
+		exit(1);
 	}
 	return x / y
 }
@@ -25,7 +25,7 @@ func mod(_ x : Int, by y : Int) -> Int{
 	// 100 % 3
 	guard y != 0 else {
 		print("Division by zero")
-		abort();
+		exit(1);
 	}
 	return x % y
 }
